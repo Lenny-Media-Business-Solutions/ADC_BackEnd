@@ -1,0 +1,9 @@
+django>=5.0
+djangorestframework
+django-cors-headers
+djangorestframework-simplejwt
+pymysql
+django-cloudinary-storage
+cloudinary
+python-dotenv
+Pillow
