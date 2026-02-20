@@ -1,0 +1,873 @@
+﻿[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "users",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "programs",
+    "model": "program"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "projects",
+    "model": "project"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "blog",
+    "model": "news"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "gallery",
+    "model": "gallery"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contact",
+    "model": "contactmessage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "volunteers",
+    "model": "volunteerapplication"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "partnerships",
+    "model": "partnershipinquiry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "impact",
+    "model": "impactstory"
+  }
+},
+{
+  "model": "programs.program",
+  "pk": 1,
+  "fields": {
+    "title": "Peacebuilding & Conflict Resolution",
+    "description": "Ensuring peaceful coexistence among agro-pastoralist communities in South Sudan through inter-community meetings and dialogues under trees.",
+    "objectives": "Ensure peaceful coexistence\nFacilitate inter-community meetings\nMediate resource-based conflicts",
+    "status": "active",
+    "created_at": "2026-02-17T16:41:21.769Z"
+  }
+},
+{
+  "model": "programs.program",
+  "pk": 2,
+  "fields": {
+    "title": "Sustainable Livelihoods",
+    "description": "Improving livelihoods in South Sudan through oxen plowing, technical training, and livestock health services.",
+    "objectives": "Improve rural household livelihoods\nEnhance production through oxen plowing\nSupport income generation",
+    "status": "active",
+    "created_at": "2026-02-17T16:41:21.776Z"
+  }
+},
+{
+  "model": "programs.program",
+  "pk": 3,
+  "fields": {
+    "title": "DRR & Resilience",
+    "description": "Building resilience in South Sudan through food preservation techniques and environmental conservation.",
+    "objectives": "Train communities in disaster preparedness\nBuild resilience via traditional preservation\nStrengthen community response",
+    "status": "active",
+    "created_at": "2026-02-17T16:41:21.778Z"
+  }
+},
+{
+  "model": "programs.program",
+  "pk": 4,
+  "fields": {
+    "title": "Good Governance & Accountability",
+    "description": "Capacity building in South Sudan through indoor workshops for community leaders.",
+    "objectives": "Promote fair and transparent leadership\nStrengthen community-level accountability\nBuild capacity for local leaders",
+    "status": "active",
+    "created_at": "2026-02-17T16:41:21.779Z"
+  }
+},
+{
+  "model": "programs.program",
+  "pk": 5,
+  "fields": {
+    "title": "Livestock medication",
+    "description": "We do treat livestock",
+    "objectives": "We do treat livestock",
+    "status": "active",
+    "created_at": "2026-02-17T16:41:21.780Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 5,
+  "fields": {
+    "title": "Community Tree Nursery and Reforestation Initiative",
+    "description": "ADC established a community tree nursery that raised over 5,000 tree seedlings to support environmental conservation. The seedlings were distributed to communities to help mitigate climate change and deforestation while promoting sustainable land use and ecosystem restoration.",
+    "program": 2,
+    "location": "South Sudan",
+    "status": "Completed",
+    "image": "media/projects/Lojiong_seeds_vjei5s",
+    "created_at": "2026-02-17T16:41:21.782Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 6,
+  "fields": {
+    "title": "Climate-Smart Agriculture and Livelihoods Training",
+    "description": "ADC conducted climate-smart agriculture and sustainable livelihoods training, reaching over 2,000 farmers across five villages. The program strengthened farmers’ skills to improve productivity, adapt to climate change, and enhance long-term food security.",
+    "program": 2,
+    "location": "South Sudan",
+    "status": "Completed",
+    "image": "media/projects/Sesame_Chukudum_acmpxp",
+    "created_at": "2026-02-17T16:41:21.784Z"
+  }
+},
+{
+  "model": "blog.news",
+  "pk": 2,
+  "fields": {
+    "title": "ADC Trains 2,000 Farmers on Climate-Smart Agriculture",
+    "slug": "adc-trains-2000-farmers-on-climate-smart-agriculture",
+    "summary": "ADC carried out advocacy and training programs on climate-smart agriculture and sustainable livelihoods, reaching 2,000 farmers across five villages.",
+    "content": "The training aimed to equip farmers with knowledge and practical skills to improve agricultural productivity while adapting to the effects of climate change. Participants were introduced to sustainable farming techniques and livelihood practices designed to enhance resilience and long-term food security.",
+    "image": "image/upload/v1769690138/ih6dro0vqujx8uekqewn.jpg",
+    "published_date": "2026-02-17T16:41:21.786Z",
+    "is_published": true,
+    "created_at": "2026-02-17T16:41:21.786Z",
+    "updated_at": "2026-02-17T16:41:21.786Z"
+  }
+},
+{
+  "model": "blog.news",
+  "pk": 3,
+  "fields": {
+    "title": "ADC Establishes Tree Nursery and Distributes 5,000 Seedlings",
+    "slug": "adc-establishes-tree-nursery-and-distributes-5000-seedlings",
+    "summary": "ADC established a community tree nursery that successfully raised over 5,000 tree seedlings as part of its environmental conservation efforts.",
+    "content": "The seedlings were distributed to local communities to help mitigate the effects of climate change and deforestation. This initiative supports ecosystem restoration while encouraging community participation in environmental protection and sustainable land use.",
+    "image": "image/upload/v1769689399/us6rldgmxvie4v7lm5x7.jpg",
+    "published_date": "2026-02-17T16:41:21.787Z",
+    "is_published": true,
+    "created_at": "2026-02-17T16:41:21.787Z",
+    "updated_at": "2026-02-17T16:41:21.787Z"
+  }
+},
+{
+  "model": "impact.impactstory",
+  "pk": 1,
+  "fields": {
+    "title": "Communities Taking Action for Sustainable Land Use",
+    "slug": "communities-taking-action-for-sustainable-land-use",
+    "summary": "Community participation in ADC’s environmental initiatives has strengthened sustainable land use and climate adaptation efforts.",
+    "content": "ADC’s community-driven approach places local participation at the center of its environmental and livelihood interventions. Through tree planting, sustainable land management, and climate-smart agriculture training, communities have taken an active role in protecting their natural resources.\r\n\r\nBy combining knowledge transfer with hands-on activities, ADC has supported communities to adopt sustainable practices that improve resilience, reduce conflict over resources, and enhance long-term food security. These efforts demonstrate the power of local action in driving meaningful and lasting change.",
+    "image": null,
+    "published_date": "2026-02-17T16:41:21.789Z",
+    "is_featured": true,
+    "created_at": "2026-02-17T16:41:21.789Z",
+    "updated_at": "2026-02-17T16:41:21.789Z"
+  }
+},
+{
+  "model": "impact.impactstory",
+  "pk": 2,
+  "fields": {
+    "title": "Restoring Landscapes Through Community Tree Nurseries",
+    "slug": "restoring-landscapes-through-community-tree-nurseries",
+    "summary": "ADC established a community tree nursery that raised over 5,000 tree seedlings to support environmental conservation and climate change mitigation efforts in local communities.",
+    "content": "Agropastoralists Development Consortium (ADC) established a community tree nursery as part of its commitment to environmental conservation and sustainable natural resource management. Through this initiative, over 5,000 tree seedlings were successfully raised and distributed to local communities.\r\n\r\nThe tree seedlings were planted across community lands to help mitigate the effects of climate change and deforestation while restoring degraded ecosystems. Community members actively participated in nursery management and tree planting activities, strengthening local ownership and environmental stewardship.\r\n\r\nThis initiative not only supports ecosystem restoration but also promotes sustainable land use practices, contributing to long-term resilience and improved livelihoods for agropastoral and pastoral communities.",
+    "image": null,
+    "published_date": "2026-02-17T16:41:21.790Z",
+    "is_featured": true,
+    "created_at": "2026-02-17T16:41:21.790Z",
+    "updated_at": "2026-02-17T16:41:21.790Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "users",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "users",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "users",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "users",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add program",
+    "content_type": [
+      "programs",
+      "program"
+    ],
+    "codename": "add_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change program",
+    "content_type": [
+      "programs",
+      "program"
+    ],
+    "codename": "change_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete program",
+    "content_type": [
+      "programs",
+      "program"
+    ],
+    "codename": "delete_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view program",
+    "content_type": [
+      "programs",
+      "program"
+    ],
+    "codename": "view_program"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add project",
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "codename": "add_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change project",
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "codename": "change_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete project",
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "codename": "delete_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view project",
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "codename": "view_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add news",
+    "content_type": [
+      "blog",
+      "news"
+    ],
+    "codename": "add_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change news",
+    "content_type": [
+      "blog",
+      "news"
+    ],
+    "codename": "change_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete news",
+    "content_type": [
+      "blog",
+      "news"
+    ],
+    "codename": "delete_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view news",
+    "content_type": [
+      "blog",
+      "news"
+    ],
+    "codename": "view_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add gallery",
+    "content_type": [
+      "gallery",
+      "gallery"
+    ],
+    "codename": "add_gallery"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change gallery",
+    "content_type": [
+      "gallery",
+      "gallery"
+    ],
+    "codename": "change_gallery"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete gallery",
+    "content_type": [
+      "gallery",
+      "gallery"
+    ],
+    "codename": "delete_gallery"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view gallery",
+    "content_type": [
+      "gallery",
+      "gallery"
+    ],
+    "codename": "view_gallery"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add contact message",
+    "content_type": [
+      "contact",
+      "contactmessage"
+    ],
+    "codename": "add_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change contact message",
+    "content_type": [
+      "contact",
+      "contactmessage"
+    ],
+    "codename": "change_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete contact message",
+    "content_type": [
+      "contact",
+      "contactmessage"
+    ],
+    "codename": "delete_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view contact message",
+    "content_type": [
+      "contact",
+      "contactmessage"
+    ],
+    "codename": "view_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add volunteer application",
+    "content_type": [
+      "volunteers",
+      "volunteerapplication"
+    ],
+    "codename": "add_volunteerapplication"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change volunteer application",
+    "content_type": [
+      "volunteers",
+      "volunteerapplication"
+    ],
+    "codename": "change_volunteerapplication"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete volunteer application",
+    "content_type": [
+      "volunteers",
+      "volunteerapplication"
+    ],
+    "codename": "delete_volunteerapplication"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view volunteer application",
+    "content_type": [
+      "volunteers",
+      "volunteerapplication"
+    ],
+    "codename": "view_volunteerapplication"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add partnership inquiry",
+    "content_type": [
+      "partnerships",
+      "partnershipinquiry"
+    ],
+    "codename": "add_partnershipinquiry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change partnership inquiry",
+    "content_type": [
+      "partnerships",
+      "partnershipinquiry"
+    ],
+    "codename": "change_partnershipinquiry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete partnership inquiry",
+    "content_type": [
+      "partnerships",
+      "partnershipinquiry"
+    ],
+    "codename": "delete_partnershipinquiry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view partnership inquiry",
+    "content_type": [
+      "partnerships",
+      "partnershipinquiry"
+    ],
+    "codename": "view_partnershipinquiry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add impact story",
+    "content_type": [
+      "impact",
+      "impactstory"
+    ],
+    "codename": "add_impactstory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change impact story",
+    "content_type": [
+      "impact",
+      "impactstory"
+    ],
+    "codename": "change_impactstory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete impact story",
+    "content_type": [
+      "impact",
+      "impactstory"
+    ],
+    "codename": "delete_impactstory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view impact story",
+    "content_type": [
+      "impact",
+      "impactstory"
+    ],
+    "codename": "view_impactstory"
+  }
+},
+{
+  "model": "users.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$TvgRCwEsbw6u7EmSCbUv33$HFQdErNvWAoLRRFRrlYsJr7jzVuIPul13jA+LE1Q0EI=",
+    "last_login": null,
+    "is_superuser": true,
+    "email": "admin@adc.org",
+    "full_name": "ADC Administrator",
+    "role": "admin",
+    "is_active": true,
+    "is_staff": true,
+    "created_at": "2026-02-17T16:32:49.868Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
