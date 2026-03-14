@@ -201,11 +201,13 @@ SIMPLE_JWT = {
     'VERIFYING_KEY': None,
 }
 
-# CORS_ALLOW_ALL_ORIGINS = True  # or set specific origins for production
+CORS_ALLOW_ALL_ORIGINS = True  # or set specific origins for production
 
 CORS_ALLOWED_ORIGINS = [
     "https://plain-angelika-mbogo-9b3bfc39.koyeb.app",
     "https://agropastoralistsdevconsortium.netlify.app",
+    "http://localhost:5173",
+    "https://agropastoralists.netlify.app",
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
