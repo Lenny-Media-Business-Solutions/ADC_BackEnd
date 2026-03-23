@@ -8,7 +8,7 @@ class News(models.Model):
     summary = models.TextField(help_text="Short summary for the news card")
     content = models.TextField(help_text="Full article content")
     image = CloudinaryField('news_image', null=True, blank=True)
-    published_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateField(null=True, blank=True)
     is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

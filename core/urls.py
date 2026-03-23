@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from users.views import UserViewSet
+from rest_framework_simplejwt.views import TokenRefreshView
+from users.views import UserViewSet, CustomTokenObtainPairView, VerifyOTPView
 from programs.views import ProgramViewSet
 from projects.views import ProjectViewSet
 from blog.views import NewsViewSet
@@ -25,9 +25,10 @@ router.register(r'partnerships', PartnershipInquiryViewSet)
 router.register(r'impact-stories', ImpactStoryViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('secure-admin-5680/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/dashboard/summary/', DashboardSummaryView.as_view(), name='dashboard-summary'),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/verify-2fa/', VerifyOTPView.as_view(), name='verify_otp'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
