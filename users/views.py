@@ -7,6 +7,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.core.mail import send_mail
 from django.utils import timezone
+from django.conf import settings
 import random
 from .models import User, OTPVerification
 from .serializers import UserSerializer, UserCreateSerializer
@@ -63,8 +64,8 @@ class CustomTokenObtainPairView(APIView):
             send_mail(
                 subject='Dashboard Verification Code',
                 message=f'Your single-use 2FA verification code is: {code}',
-                from_email='noreply@adc-consortium.org',
-                recipient_list=[user.email],
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.ADMIN_EMAIL],
                 fail_silently=True,
             )
             

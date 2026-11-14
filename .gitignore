@@ -16,3 +16,8 @@ env/
 # Django static and media files
 /staticfiles/
 /media/
+
+
+data_migration.json
+data_migration_utf8.json
+fix_encoding.py

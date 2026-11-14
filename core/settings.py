@@ -111,14 +111,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DB_NAME", "fallback_db_name"),
-        "USER": os.environ.get("DB_USER", "fallback_user"),
-        "PASSWORD": os.environ.get("DB_PASSWORD", ""),
-        "HOST": os.environ.get("DB_HOST", ""),
-        "PORT": os.environ.get("DB_PORT", 5432),
-        **({"OPTIONS": {"sslmode": "require"}} if not DEBUG else {})
-        # "OPTIONS": {"sslmode": "require"},
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.environ.get("DB_NAME", "agropastoral_db"),
+        "USER": os.environ.get("DB_USER", "root"),
+        "PASSWORD": os.environ.get("DB_PASSWORD", "root"),
+        "HOST": os.environ.get("DB_HOST", "127.0.0.1"),
+        "PORT": os.environ.get("DB_PORT", 3306),
+        **({"OPTIONS": {"ssl": {"sslmode": "REQUIRED"}}} if not DEBUG else {})
     }
 }
 
