@@ -3,6 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import ContactMessage
 from .serializers import ContactMessageSerializer
+from users.permissions import IsActivePortalStaff
 
 class ContactMessageViewSet(viewsets.ModelViewSet):
     queryset = ContactMessage.objects.all()
@@ -11,7 +12,7 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action == 'create':
             return [permissions.AllowAny()]
-        return [permissions.IsAuthenticated()]
+        return [IsActivePortalStaff()]
 
     def perform_create(self, serializer):
         from core.utils import send_submission_notification

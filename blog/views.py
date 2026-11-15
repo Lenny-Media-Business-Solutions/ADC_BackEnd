@@ -4,6 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import News
 from .serializers import NewsListSerializer, NewsDetailSerializer
+from users.permissions import IsActivePortalStaff
 
 class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
@@ -31,7 +32,7 @@ class NewsViewSet(viewsets.ModelViewSet):
         include_drafts = self.request.query_params.get('include_drafts', 'false').lower() == 'true'
         is_detail = self.detail or 'update_status' in self.request.path or 'toggle_status' in self.request.path
         
-        if (include_drafts or is_detail) and self.request.user.is_authenticated:
+        if (include_drafts or is_detail) and IsActivePortalStaff().has_permission(self.request, self):
             return News.objects.all()
         return News.objects.filter(is_published=True)
 
@@ -43,7 +44,7 @@ class NewsViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
-        return [permissions.IsAuthenticated()]
+        return [IsActivePortalStaff()]
 
     @action(detail=True, methods=['post'])
     def toggle_status(self, request, slug=None):

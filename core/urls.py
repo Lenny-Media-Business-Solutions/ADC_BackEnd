@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from rest_framework_simplejwt.views import TokenRefreshView
-from users.views import UserViewSet, CustomTokenObtainPairView, VerifyOTPView
+from users.views import UserViewSet, CustomTokenObtainPairView, StaffTokenRefreshView
 from programs.views import ProgramViewSet
 from projects.views import ProjectViewSet
 from blog.views import NewsViewSet
@@ -29,6 +28,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/dashboard/summary/', DashboardSummaryView.as_view(), name='dashboard-summary'),
     path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/verify-2fa/', VerifyOTPView.as_view(), name='verify_otp'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/refresh/', StaffTokenRefreshView.as_view(), name='token_refresh'),
 ]

@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions
 from .models import Program
 from .serializers import ProgramSerializer
+from users.permissions import IsActivePortalStaff
 
 class ProgramViewSet(viewsets.ModelViewSet):
     queryset = Program.objects.all()
@@ -9,4 +10,4 @@ class ProgramViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
-        return [permissions.IsAuthenticated()]
+        return [IsActivePortalStaff()]

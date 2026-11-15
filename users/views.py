@@ -1,31 +1,33 @@
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, status
 import re
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.core.mail import send_mail
-from django.utils import timezone
-from django.conf import settings
-import random
-from .models import User, OTPVerification
-from .serializers import UserSerializer, UserCreateSerializer
+from rest_framework.throttling import ScopedRateThrottle
+from rest_framework_simplejwt.exceptions import AuthenticationFailed, InvalidToken, TokenError
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.settings import api_settings
+from .models import User
+from .permissions import IsActivePortalAdmin, IsActivePortalStaff
+from .serializers import UserMeSerializer, UserSerializer, UserCreateSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsActivePortalStaff]
 
     def get_serializer_class(self):
         if self.action == 'create':
             return UserCreateSerializer
+        if self.action == 'me':
+            return UserMeSerializer
         return UserSerializer
 
     def get_permissions(self):
-        if self.action == 'create':
-            return [permissions.IsAdminUser()]
-        return super().get_permissions()
+        if self.action == 'me':
+            return [IsActivePortalStaff()]
+        return [IsActivePortalAdmin()]
 
     @action(detail=False, methods=['get', 'put', 'patch'])
     def me(self, request):
@@ -46,51 +48,37 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(request.user)
         return Response(serializer.data)
 
-class CustomTokenObtainPairView(APIView):
-    permission_classes = [AllowAny]
+class StaffTokenObtainPairSerializer(TokenObtainPairSerializer):
+    default_error_messages = {
+        **TokenObtainPairSerializer.default_error_messages,
+        'no_active_account': 'No active account found with the given credentials',
+    }
 
-    def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        if not self.user.is_active or self.user.role not in {'staff', 'admin'}:
+            raise AuthenticationFailed(self.error_messages['no_active_account'])
+        return data
 
-        user = User.objects.filter(username=username).first()
-        if user and user.check_password(password):
-            code = f"{random.randint(100000, 999999)}"
-            OTPVerification.objects.update_or_create(
-                user=user,
-                defaults={'code': code, 'created_at': timezone.now()}
-            )
-            
-            send_mail(
-                subject='Dashboard Verification Code',
-                message=f'Your single-use 2FA verification code is: {code}',
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.ADMIN_EMAIL],
-                fail_silently=True,
-            )
-            
-            return Response({'requires_2fa': True, 'username': username})
-        return Response({'detail': 'No active account found with the given credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-class VerifyOTPView(APIView):
-    permission_classes = [AllowAny]
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = StaffTokenObtainPairSerializer
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'staff_login'
 
-    def post(self, request):
-        username = request.data.get('username')
-        code = request.data.get('otp')
 
+class StaffTokenRefreshSerializer(TokenRefreshSerializer):
+    def validate(self, attrs):
         try:
-            user = User.objects.get(username=username)
-            otp_record = OTPVerification.objects.get(user=user)
-            
-            if otp_record.code == code and otp_record.is_valid():
-                otp_record.delete()
-                refresh = RefreshToken.for_user(user)
-                return Response({
-                    'refresh': str(refresh),
-                    'access': str(refresh.access_token),
-                })
-        except (User.DoesNotExist, OTPVerification.DoesNotExist):
-            pass
-            
-        return Response({'detail': 'Invalid or expired OTP code'}, status=status.HTTP_400_BAD_REQUEST)
+            token = self.token_class(attrs['refresh'])
+        except TokenError as error:
+            raise InvalidToken(error.args[0]) from error
+        user_id = token.get(api_settings.USER_ID_CLAIM)
+        user = User.objects.filter(pk=user_id).first()
+        if not user or not user.is_active or user.role not in {'staff', 'admin'}:
+            raise InvalidToken('No active staff portal account found for this token')
+        return super().validate(attrs)
+
+
+class StaffTokenRefreshView(TokenRefreshView):
+    serializer_class = StaffTokenRefreshSerializer

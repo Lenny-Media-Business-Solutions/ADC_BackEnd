@@ -7,6 +7,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'full_name', 'role', 'is_active', 'is_staff', 'created_at')
         read_only_fields = ('id', 'created_at')
 
+
+class UserMeSerializer(UserSerializer):
+    class Meta(UserSerializer.Meta):
+        read_only_fields = ('id', 'role', 'is_active', 'is_staff', 'created_at')
+
 class UserCreateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
